@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+<!-- AGENT-MEMORY:BEGIN -->
+- Keep the shared application shell and in-memory submission provider around the root Outlet so navigation retains unprocessed input without pretending to persist verification records.
+- Keep verification validation and report preparation in the browser-safe verification module; no analysis should execute until a real service is connected.
+- Give every content page its own route and metadata so navigation and page sharing remain independent.
+<!-- AGENT-MEMORY:END -->

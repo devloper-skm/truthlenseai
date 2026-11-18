@@ -1,23 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowRight, Sparkles, ScanLine, Check, X, CircleHelp, CalendarDays, ArrowUpRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Workspace, Tips } from '@/components/truthlens/workspace';
+import { ActivityTable } from '@/components/truthlens/activity';
+import { pageHead } from '@/components/truthlens/meta';
+import globe from '@/assets/truth-globe.jpg';
+export const Route = createFileRoute('/')({head:()=>pageHead('Overview','Your evidence-first workspace for news, image and URL verification.'),component:Dashboard});
+function Dashboard(){return <><div className="page-heading"><div><h1>A clearer picture starts here.</h1><p>Question the claim. Check the evidence. Find your clarity.</p></div><span className="date-label flex items-center gap-2 text-xs text-muted-foreground"><CalendarDays size={15}/>Your verification workspace</span></div><section className="hero-banner"><img src={globe} width={1536} height={768} alt="Connected blue globe representing a world of information"/><div className="hero-copy"><span className="hero-eyebrow"><Sparkles size={13}/> CLARITY IN A WORLD OF NOISE</span><h2>Question everything.<br/>Verify with evidence.</h2><p>Make sense of what you see and share. Your first step toward more informed decisions.</p><Button asChild size="sm" className="h-9 px-4 text-xs"><Link to="/verify">Start a verification <ArrowRight size={13}/></Link></Button></div></section><section className="stats-grid">{[{label:'Total verifications',icon:ScanLine,tone:'bg-accent text-primary',note:'Your completed analyses'},{label:'Verified true',icon:Check,tone:'bg-success-soft text-success',note:'Supported by evidence'},{label:'Verified false',icon:X,tone:'bg-danger-soft text-destructive',note:'Contradicted by evidence'},{label:'Unverified',icon:CircleHelp,tone:'bg-warning-soft text-warning',note:'Insufficient evidence'}].map(s=><div className="stat-card" key={s.label}><div className="stat-top"><span>{s.label}</span><span className={`icon-tile ${s.tone}`}><s.icon size={17}/></span></div><p className="stat-value">0<span className="ml-2 text-[10px] font-normal text-muted-foreground">—</span></p><p className="stat-bottom">{s.note}</p></div>)}</section><section className="workspace-grid"><div><h2 className="section-heading">What would you like to check?</h2><p className="section-subtitle">Bring a claim, an image, or a link. Start with the source.</p><Workspace/></div><Tips/></section><section className="recent-section"><div className="recent-header"><div><h2 className="section-heading">Recent activity</h2><p className="section-subtitle">Sample inputs only. No verifications have been performed.</p></div><Button asChild variant="link" className="h-auto p-0 text-xs"><Link to="/history">View history <ArrowUpRight size={13}/></Link></Button></div><ActivityTable/></section></>;}
