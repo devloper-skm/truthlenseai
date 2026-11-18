@@ -30,6 +30,7 @@ use the editor.
 <!-- LOVABLE:END -->
 
 <!-- AGENT-MEMORY:BEGIN -->
+- Reuse WebsiteFooter in the application shell and welcome page to keep navigation and verification disclaimers consistent.
 - Keep the shared application shell and in-memory submission provider around the root Outlet so navigation retains unprocessed input without pretending to persist verification records.
 - Keep verification validation and report preparation in the browser-safe verification module; no analysis should execute until a real service is connected.
 - Give every content page its own route and metadata so navigation and page sharing remain independent.
