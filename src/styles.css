@@ -120,6 +120,21 @@
 .prose-section h2 { font-size:20px; margin-bottom:12px; }
 .prose-section p { font-size:14px; line-height:1.9; color:var(--muted-foreground); max-width:780px; }
 .result-columns { display:grid; grid-template-columns:1fr 1fr; gap:25px; margin-top:25px; }
+.answer-card { margin-top:22px; border:1px solid var(--border); border-left:3px solid var(--primary); border-radius:10px; background:var(--card); box-shadow:var(--shadow-subtle); overflow:hidden; animation:answer-in .45s ease both; }
+.answer-card-head { display:flex; align-items:center; gap:12px; padding:16px 20px; border-bottom:1px solid var(--border); background:var(--accent); }
+.answer-avatar { width:34px; height:34px; flex-shrink:0; display:grid; place-items:center; border-radius:50%; background:var(--primary); color:var(--primary-foreground); }
+.answer-author { font-size:13px; font-weight:650; }
+.answer-status { display:flex; align-items:center; gap:5px; margin-top:3px; font-size:11px; color:var(--muted-foreground); }
+.answer-body { padding:20px; }
+.answer-body p { font-size:14px; line-height:1.9; color:var(--foreground); max-width:820px; }
+.answer-body p + p, .answer-body p + .answer-list, .answer-body .answer-list + p { margin-top:12px; }
+.answer-body strong { font-weight:650; }
+.answer-list { margin:0; padding-left:20px; font-size:14px; line-height:1.9; color:var(--foreground); max-width:820px; }
+.answer-list li { margin-top:6px; }
+.answer-list li::marker { color:var(--primary); }
+.answer-cursor { display:inline-block; width:8px; height:17px; margin-left:2px; vertical-align:-3px; background:var(--primary); border-radius:2px; animation:cursor-blink .8s steps(2) infinite; }
+@keyframes cursor-blink { 50% { opacity:0; } }
+@keyframes answer-in { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
 .sidebar-collapsed .app-sidebar { width:76px; padding:30px 12px 20px; }
 .sidebar-collapsed .app-body { margin-left:76px; }
 .sidebar-collapsed .sidebar-label, .sidebar-collapsed .sidebar-eyebrow, .sidebar-collapsed .sidebar-note, .sidebar-collapsed .sidebar-profile > div:not(.avatar) { display:none; }
