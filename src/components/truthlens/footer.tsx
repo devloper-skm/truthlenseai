@@ -27,7 +27,7 @@ export function WebsiteFooter() {
       </div>
       <div className="website-footer-disclaimer">
         <ShieldCheck size={17} />
-        <p><strong>Think critically. Share responsibly.</strong> AI findings are not guaranteed truth. Always review original sources. Real verification is not yet connected in this preview.</p>
+        <p><strong>Think critically. Share responsibly.</strong> AI findings are not guaranteed truth. Always review original sources. AI assessments do not include live evidence retrieval.</p>
       </div>
       <div className="website-footer-bottom">
         <span>© 2026 TruthLens AI. All rights reserved.</span>

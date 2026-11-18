@@ -6,4 +6,5 @@ describe('Verification integrity',()=>{
  it('rejects unsafe URL schemes',()=>{expect(validateVerification('url','javascript:alert(1)')).not.toBeNull();expect(validateVerification('url','https://example.com/article')).toBeNull();});
  it('rejects missing images',()=>{expect(validateVerification('image','',null)).not.toBeNull();});
  it('does not include a fake verdict in downloaded reports',()=>{expect(reportText({mode:'text',content:'A test claim'})).toContain('Verdict: Not available');expect(reportText()).toContain('No AI verification has been performed');});
+ it('exports actual AI responses without implying independent verification',()=>{const report=reportText({mode:'text',content:'A health claim',answer:'Warm water is not a cure.'});expect(report).toContain('Warm water is not a cure.');expect(report).toContain('Not an independently verified fact-check.');expect(report).toContain('No live sources were retrieved.');});
 });

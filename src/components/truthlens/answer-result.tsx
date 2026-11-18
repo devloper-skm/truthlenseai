@@ -1,0 +1,8 @@
+import { Link } from '@tanstack/react-router';
+import { ArrowLeft, Download, Sparkles } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { reportText, type VerificationDraft } from '@/lib/verification';
+export function AnswerResult({draft}:{draft:VerificationDraft}) {
+ function download(){const url=URL.createObjectURL(new Blob([reportText(draft)],{type:'text/plain'}));const a=document.createElement('a');a.href=url;a.download='truthlens-ai-assessment.txt';a.click();URL.revokeObjectURL(url);}
+ return <><Button asChild variant="link" className="p-0 mb-6"><Link to="/verify"><ArrowLeft/>Back to workspace</Link></Button><div className="page-heading"><div><h1 className="flex items-center gap-2"><Sparkles className="text-primary"/>AI assessment</h1><p>A real AI response, not an independently verified verdict.</p></div><Button variant="outline" size="icon" aria-label="Download AI assessment" title="Download AI assessment" onClick={download}><Download/></Button></div><div className="notice">No live sources were retrieved. This assessment may be inaccurate or outdated; review original sources before sharing.</div><section className="prose-section"><p className="whitespace-pre-wrap break-words">{draft.answer}</p></section><section className="prose-section"><h2>Submitted {draft.mode==='image'?'image':'content'}</h2><p className="break-words whitespace-pre-wrap">{draft.imageName??draft.content}</p></section><section className="prose-section"><h2>Evidence &amp; confidence</h2><p>No supporting or contradicting sources have been independently retrieved. A confidence score is not available. Visual observations cannot establish whether an image is a deepfake.</p></section></>;
+}
