@@ -5,3 +5,4 @@
 - [x] Test navigation, uploads, reports and mobile layout.
 - [x] Connect private AI answers and show real responses without fabricated evidence.
 - [x] Test the live answer flow and update connection notices.
+- [x] Switch answers and image analysis to Gemini and verify live responses.

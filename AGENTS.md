@@ -33,5 +33,6 @@ use the editor.
 - Reuse WebsiteFooter in the application shell and welcome page to keep navigation and verification disclaimers consistent.
 - Keep the shared application shell and in-memory submission provider around the root Outlet so navigation retains unprocessed input without pretending to persist verification records.
 - Keep validation and reports browser-safe; execute AI through answers.functions.ts and server-only gateway helpers, and never present ungrounded assessments as independently verified verdicts.
+- Serve text, URL-context and image assessments through the shared Gemini server helper so all input modes use the same private provider connection.
 - Give every content page its own route and metadata so navigation and page sharing remain independent.
 <!-- AGENT-MEMORY:END -->
